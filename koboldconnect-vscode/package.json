@@ -1,0 +1,61 @@
+{
+  "name": "koboldconnect",
+  "displayName": "koboldconnect",
+  "description": "Connects your Kobold AI to your VSC to autocomplete code. Recommend an Nvidia card or a gfx1032+ AMD card.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "koboldconnect.grabTextAndSendToApi",
+        "title": "Grab text and send to API"
+      },
+      {
+        "command": "koboldconnect.AddContext",
+        "title": "Add/Replace context for your program/website"
+      },
+      {
+        "command": "koboldconnect.CustomPrompt",
+        "title": "Create a custom snippet of code."
+      },
+      {
+        "command": "koboldconnect.ConnectApi",
+        "title": "Establish first connection(must do on startup)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.2",
+    "@types/node": "18.x",
+    "@types/node-fetch": "^2.6.6",
+    "@types/vscode": "^1.82.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "@vscode/test-electron": "^2.3.4",
+    "eslint": "^8.50.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
